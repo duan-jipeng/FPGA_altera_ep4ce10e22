@@ -1,0 +1,175 @@
+
+State Machine - |main|bus_owner
+Name bus_owner.BUS_INIT bus_owner.BUS_SEND bus_owner.BUS_RECV 
+bus_owner.BUS_INIT 0 0 0 
+bus_owner.BUS_RECV 1 0 1 
+bus_owner.BUS_SEND 1 1 0 
+
+State Machine - |main|pulse_gen:gen_pulse[7].u_pulse_gen|state
+Name state.S_RUN state.S_DIV_FIN state.S_DIV state.S_IDLE 
+state.S_IDLE 0 0 0 0 
+state.S_DIV 0 0 1 1 
+state.S_DIV_FIN 0 1 0 1 
+state.S_RUN 1 0 0 1 
+
+State Machine - |main|pulse_gen:gen_pulse[6].u_pulse_gen|state
+Name state.S_RUN state.S_DIV_FIN state.S_DIV state.S_IDLE 
+state.S_IDLE 0 0 0 0 
+state.S_DIV 0 0 1 1 
+state.S_DIV_FIN 0 1 0 1 
+state.S_RUN 1 0 0 1 
+
+State Machine - |main|pulse_gen:gen_pulse[5].u_pulse_gen|state
+Name state.S_RUN state.S_DIV_FIN state.S_DIV state.S_IDLE 
+state.S_IDLE 0 0 0 0 
+state.S_DIV 0 0 1 1 
+state.S_DIV_FIN 0 1 0 1 
+state.S_RUN 1 0 0 1 
+
+State Machine - |main|pulse_gen:gen_pulse[4].u_pulse_gen|state
+Name state.S_RUN state.S_DIV_FIN state.S_DIV state.S_IDLE 
+state.S_IDLE 0 0 0 0 
+state.S_DIV 0 0 1 1 
+state.S_DIV_FIN 0 1 0 1 
+state.S_RUN 1 0 0 1 
+
+State Machine - |main|pulse_gen:gen_pulse[3].u_pulse_gen|state
+Name state.S_RUN state.S_DIV_FIN state.S_DIV state.S_IDLE 
+state.S_IDLE 0 0 0 0 
+state.S_DIV 0 0 1 1 
+state.S_DIV_FIN 0 1 0 1 
+state.S_RUN 1 0 0 1 
+
+State Machine - |main|pulse_gen:gen_pulse[2].u_pulse_gen|state
+Name state.S_RUN state.S_DIV_FIN state.S_DIV state.S_IDLE 
+state.S_IDLE 0 0 0 0 
+state.S_DIV 0 0 1 1 
+state.S_DIV_FIN 0 1 0 1 
+state.S_RUN 1 0 0 1 
+
+State Machine - |main|pulse_gen:gen_pulse[1].u_pulse_gen|state
+Name state.S_RUN state.S_DIV_FIN state.S_DIV state.S_IDLE 
+state.S_IDLE 0 0 0 0 
+state.S_DIV 0 0 1 1 
+state.S_DIV_FIN 0 1 0 1 
+state.S_RUN 1 0 0 1 
+
+State Machine - |main|pulse_gen:gen_pulse[0].u_pulse_gen|state
+Name state.S_RUN state.S_DIV_FIN state.S_DIV state.S_IDLE 
+state.S_IDLE 0 0 0 0 
+state.S_DIV 0 0 1 1 
+state.S_DIV_FIN 0 1 0 1 
+state.S_RUN 1 0 0 1 
+
+State Machine - |main|w5500_send:u_send|state
+Name state.S_FINISH state.S_SEND_CMD state.S_UPDATE_WR state.S_WR_DATA2 state.S_TXWR_WAIT state.S_RD_TXWR state.S_IDLE 
+state.S_IDLE 0 0 0 0 0 0 0 
+state.S_RD_TXWR 0 0 0 0 0 1 1 
+state.S_TXWR_WAIT 0 0 0 0 1 0 1 
+state.S_WR_DATA2 0 0 0 1 0 0 1 
+state.S_UPDATE_WR 0 0 1 0 0 0 1 
+state.S_SEND_CMD 0 1 0 0 0 0 1 
+state.S_FINISH 1 0 0 0 0 0 1 
+
+State Machine - |main|w5500_receive:u_recv|main_state
+Name main_state.S_STAT_WR_B5 main_state.S_STAT_DONE main_state.S_STAT_SEND_CMD main_state.S_STAT_UPD_WR main_state.S_STAT_WR_B4 main_state.S_STAT_WR_B3 main_state.S_STAT_WR_B2 main_state.S_STAT_WR_B1 main_state.S_STAT_TXWR_WAIT main_state.S_STAT_RD_TXWR main_state.S_ECHO_WAIT main_state.S_ECHO_REQ main_state.S_SEND_CLEAR_IR_WR main_state.S_SEND_CLEAR_IR main_state.S_DISCON_WAIT main_state.S_DISCON_CLOSE main_state.S_RETRY_DELAY main_state.S_ERROR_WAIT main_state.S_SOCK_CLOSE main_state.S_RECV_CMD main_state.S_RECV_UPDATE_RD main_state.S_RECV_DATA2 main_state.S_RECV_DATA main_state.S_RECV_CALC_OFFSET main_state.S_RECV_CHECK_SIZE main_state.S_LINK_DOWN_WAIT main_state.S_RECV_RSR_H main_state.S_LINK_CHECK main_state.S_POLL_CHECK_IR main_state.S_POLL_S0_IR main_state.S_POLL_CHECK main_state.S_POLL_SIR main_state.S_SOCK_VERIFY_LISTEN main_state.S_SOCK_CHECK_LISTEN main_state.S_SOCK_LISTEN_WAIT main_state.S_SOCK_LISTEN_CR main_state.S_SOCK_CHECK_INIT main_state.S_SOCK_OPEN_WAIT main_state.S_SOCK_OPEN_CR main_state.S_SOCK_OPEN_MR main_state.S_SOCK_PORT main_state.S_WAIT_INIT 
+main_state.S_WAIT_INIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+main_state.S_SOCK_PORT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+main_state.S_SOCK_OPEN_MR 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+main_state.S_SOCK_OPEN_CR 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+main_state.S_SOCK_OPEN_WAIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+main_state.S_SOCK_CHECK_INIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+main_state.S_SOCK_LISTEN_CR 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+main_state.S_SOCK_LISTEN_WAIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+main_state.S_SOCK_CHECK_LISTEN 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+main_state.S_SOCK_VERIFY_LISTEN 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+main_state.S_POLL_SIR 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+main_state.S_POLL_CHECK 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_POLL_S0_IR 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_POLL_CHECK_IR 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_LINK_CHECK 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_RECV_RSR_H 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_LINK_DOWN_WAIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_RECV_CHECK_SIZE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_RECV_CALC_OFFSET 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_RECV_DATA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_RECV_DATA2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_RECV_UPDATE_RD 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_RECV_CMD 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_SOCK_CLOSE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_ERROR_WAIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_RETRY_DELAY 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_DISCON_CLOSE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_DISCON_WAIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_SEND_CLEAR_IR 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_SEND_CLEAR_IR_WR 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_ECHO_REQ 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_ECHO_WAIT 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_STAT_RD_TXWR 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_STAT_TXWR_WAIT 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_STAT_WR_B1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_STAT_WR_B2 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_STAT_WR_B3 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_STAT_WR_B4 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_STAT_UPD_WR 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_STAT_SEND_CMD 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_STAT_DONE 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_STAT_WR_B5 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |main|w5500_init:u_init|fdm1_next
+Name fdm1_next.S_BUF_INIT_START 
+fdm1_next.S_IDLE 0 
+fdm1_next.S_BUF_INIT_START 1 
+
+State Machine - |main|w5500_init:u_init|vdm_target
+Name vdm_target.11 vdm_target.10 vdm_target.01 vdm_target.00 
+vdm_target.00 0 0 0 0 
+vdm_target.01 0 0 1 1 
+vdm_target.10 0 1 0 1 
+vdm_target.11 1 0 0 1 
+
+State Machine - |main|w5500_init:u_init|main_state
+Name main_state.S_INIT_DONE main_state.S_BUF_INIT_DONE main_state.S_FDM1_WAIT_BUSY main_state.S_PRELOAD_WAIT main_state.S_PRELOAD_VDM main_state.S_RETRY_DELAY main_state.S_ERROR_WAIT main_state.S_SOCK_CLOSE main_state.S_SOCK_VERIFY_LISTEN main_state.S_SOCK_CHECK_LISTEN main_state.S_SOCK_LISTEN_WAIT main_state.S_SOCK_LISTEN_CR main_state.S_SOCK_CHECK_INIT main_state.S_SOCK_OPEN_WAIT main_state.S_SOCK_OPEN_CR main_state.S_SOCK_OPEN_MR main_state.S_SOCK_PORT main_state.S_SOCK_MSSR main_state.S_WR_SIMR main_state.S_WR_RCR main_state.S_WR_RTR main_state.S_BUF_INIT_NEXT main_state.S_BUF_INIT_TX main_state.S_BUF_INIT_START main_state.S_WR_SIPR_0 main_state.S_WR_SHAR_0 main_state.S_WR_SUBR_0 main_state.S_WR_GAR_0 main_state.S_SW_RST2 main_state.S_SW_RST1 main_state.S_WAIT_LINK main_state.S_HW_RST_WAIT2 main_state.S_HW_RST_HIGH main_state.S_HW_RST_WAIT1 main_state.S_HW_RST_LOW main_state.S_IDLE 
+main_state.S_IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+main_state.S_HW_RST_LOW 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+main_state.S_HW_RST_WAIT1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+main_state.S_HW_RST_HIGH 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+main_state.S_HW_RST_WAIT2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+main_state.S_WAIT_LINK 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+main_state.S_SW_RST1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+main_state.S_SW_RST2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+main_state.S_WR_GAR_0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+main_state.S_WR_SUBR_0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+main_state.S_WR_SHAR_0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+main_state.S_WR_SIPR_0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_BUF_INIT_START 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_BUF_INIT_TX 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_BUF_INIT_NEXT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_WR_RTR 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_WR_RCR 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_WR_SIMR 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_SOCK_MSSR 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_SOCK_PORT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_SOCK_OPEN_MR 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_SOCK_OPEN_CR 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_SOCK_OPEN_WAIT 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_SOCK_CHECK_INIT 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_SOCK_LISTEN_CR 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_SOCK_LISTEN_WAIT 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_SOCK_CHECK_LISTEN 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_SOCK_VERIFY_LISTEN 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_SOCK_CLOSE 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_ERROR_WAIT 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_RETRY_DELAY 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_PRELOAD_VDM 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_PRELOAD_WAIT 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_FDM1_WAIT_BUSY 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_BUF_INIT_DONE 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+main_state.S_INIT_DONE 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |main|spi_master:u_spi|state
+Name state.S_DONE state.S_HIGH state.S_LOW state.S_IDLE 
+state.S_IDLE 0 0 0 0 
+state.S_LOW 0 0 1 1 
+state.S_HIGH 0 1 0 1 
+state.S_DONE 1 0 0 1 

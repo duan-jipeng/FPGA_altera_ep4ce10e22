@@ -1,0 +1,1107 @@
+Analysis & Synthesis report for test_lqfp
+Sat Jul 18 18:19:11 2026
+Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |main|bus_owner
+ 10. State Machine - |main|pulse_gen:gen_pulse[7].u_pulse_gen|state
+ 11. State Machine - |main|pulse_gen:gen_pulse[6].u_pulse_gen|state
+ 12. State Machine - |main|pulse_gen:gen_pulse[5].u_pulse_gen|state
+ 13. State Machine - |main|pulse_gen:gen_pulse[4].u_pulse_gen|state
+ 14. State Machine - |main|pulse_gen:gen_pulse[3].u_pulse_gen|state
+ 15. State Machine - |main|pulse_gen:gen_pulse[2].u_pulse_gen|state
+ 16. State Machine - |main|pulse_gen:gen_pulse[1].u_pulse_gen|state
+ 17. State Machine - |main|pulse_gen:gen_pulse[0].u_pulse_gen|state
+ 18. State Machine - |main|w5500_send:u_send|state
+ 19. State Machine - |main|w5500_receive:u_recv|main_state
+ 20. State Machine - |main|w5500_init:u_init|fdm1_next
+ 21. State Machine - |main|w5500_init:u_init|vdm_target
+ 22. State Machine - |main|w5500_init:u_init|main_state
+ 23. State Machine - |main|spi_master:u_spi|state
+ 24. Registers Removed During Synthesis
+ 25. Removed Registers Triggering Further Register Optimizations
+ 26. General Register Statistics
+ 27. Inverted Register Statistics
+ 28. Registers Packed Into Inferred Megafunctions
+ 29. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 30. Source assignments for altsyncram:buffer_rtl_0|altsyncram_03h1:auto_generated
+ 31. Parameter Settings for Inferred Entity Instance: altsyncram:buffer_rtl_0
+ 32. altsyncram Parameter Settings by Entity Instance
+ 33. Port Connectivity Checks: "w5500_receive:u_recv"
+ 34. Port Connectivity Checks: "spi_master:u_spi"
+ 35. Post-Synthesis Netlist Statistics for Top Partition
+ 36. Elapsed Time Per Partition
+ 37. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Jul 18 18:19:11 2026           ;
+; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Standard Edition ;
+; Revision Name                      ; test_lqfp                                       ;
+; Top-level Entity Name              ; main                                            ;
+; Family                             ; Cyclone IV E                                    ;
+; Total logic elements               ; 5,141                                           ;
+;     Total combinational functions  ; 3,975                                           ;
+;     Dedicated logic registers      ; 2,494                                           ;
+; Total registers                    ; 2494                                            ;
+; Total pins                         ; 42                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 16,384                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE10E22I7       ;                    ;
+; Top-level entity name                                            ; main               ; test_lqfp          ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 14          ;
+; Maximum allowed            ; 14          ;
+;                            ;             ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 14          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
+;     Processor 7            ;   0.1%      ;
+;     Processor 8            ;   0.1%      ;
+;     Processors 9-14        ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                            ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
+; ../rtl/main.v                    ; yes             ; User Verilog HDL File        ; F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/main.v                       ;         ;
+; ../rtl/spi_master.v              ; yes             ; User Verilog HDL File        ; F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/spi_master.v                 ;         ;
+; ../rtl/w5500_init.v              ; yes             ; User Verilog HDL File        ; F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_init.v                 ;         ;
+; ../rtl/w5500_receive.v           ; yes             ; User Verilog HDL File        ; F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_receive.v              ;         ;
+; ../rtl/w5500_send.v              ; yes             ; User Verilog HDL File        ; F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_send.v                 ;         ;
+; ../rtl/pulse_gen.v               ; yes             ; User Verilog HDL File        ; F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/pulse_gen.v                  ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; e:/intelfpga/18.0/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; e:/intelfpga/18.0/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; e:/intelfpga/18.0/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; e:/intelfpga/18.0/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal180.inc                   ; yes             ; Megafunction                 ; e:/intelfpga/18.0/quartus/libraries/megafunctions/aglobal180.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; e:/intelfpga/18.0/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; e:/intelfpga/18.0/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; e:/intelfpga/18.0/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; e:/intelfpga/18.0/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_03h1.tdf           ; yes             ; Auto-Generated Megafunction  ; F:/desktop/altera_ce10/plc_ep4ce10_e22/par/db/altsyncram_03h1.tdf       ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                 ;
++---------------------------------------------+---------------+
+; Resource                                    ; Usage         ;
++---------------------------------------------+---------------+
+; Estimated Total logic elements              ; 5,141         ;
+;                                             ;               ;
+; Total combinational functions               ; 3975          ;
+; Logic element usage by number of LUT inputs ;               ;
+;     -- 4 input functions                    ; 1591          ;
+;     -- 3 input functions                    ; 1240          ;
+;     -- <=2 input functions                  ; 1144          ;
+;                                             ;               ;
+; Logic elements by mode                      ;               ;
+;     -- normal mode                          ; 2429          ;
+;     -- arithmetic mode                      ; 1546          ;
+;                                             ;               ;
+; Total registers                             ; 2494          ;
+;     -- Dedicated logic registers            ; 2494          ;
+;     -- I/O registers                        ; 0             ;
+;                                             ;               ;
+; I/O pins                                    ; 42            ;
+; Total memory bits                           ; 16384         ;
+;                                             ;               ;
+; Embedded Multiplier 9-bit elements          ; 0             ;
+;                                             ;               ;
+; Maximum fan-out node                        ; sys_clk~input ;
+; Maximum fan-out                             ; 2502          ;
+; Total fan-out                               ; 22810         ;
+; Average fan-out                             ; 3.48          ;
++---------------------------------------------+---------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                ;
++-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                          ; Entity Name     ; Library Name ;
++-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+-----------------+--------------+
+; |main                                   ; 3975 (310)          ; 2494 (622)                ; 16384       ; 0            ; 0       ; 0         ; 42   ; 0            ; |main                                                        ; main            ; work         ;
+;    |altsyncram:buffer_rtl_0|            ; 0 (0)               ; 0 (0)                     ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|altsyncram:buffer_rtl_0                                ; altsyncram      ; work         ;
+;       |altsyncram_03h1:auto_generated|  ; 0 (0)               ; 0 (0)                     ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|altsyncram:buffer_rtl_0|altsyncram_03h1:auto_generated ; altsyncram_03h1 ; work         ;
+;    |pulse_gen:gen_pulse[0].u_pulse_gen| ; 290 (290)           ; 163 (163)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|pulse_gen:gen_pulse[0].u_pulse_gen                     ; pulse_gen       ; work         ;
+;    |pulse_gen:gen_pulse[1].u_pulse_gen| ; 290 (290)           ; 163 (163)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|pulse_gen:gen_pulse[1].u_pulse_gen                     ; pulse_gen       ; work         ;
+;    |pulse_gen:gen_pulse[2].u_pulse_gen| ; 289 (289)           ; 163 (163)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|pulse_gen:gen_pulse[2].u_pulse_gen                     ; pulse_gen       ; work         ;
+;    |pulse_gen:gen_pulse[3].u_pulse_gen| ; 290 (290)           ; 163 (163)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|pulse_gen:gen_pulse[3].u_pulse_gen                     ; pulse_gen       ; work         ;
+;    |pulse_gen:gen_pulse[4].u_pulse_gen| ; 290 (290)           ; 163 (163)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|pulse_gen:gen_pulse[4].u_pulse_gen                     ; pulse_gen       ; work         ;
+;    |pulse_gen:gen_pulse[5].u_pulse_gen| ; 290 (290)           ; 163 (163)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|pulse_gen:gen_pulse[5].u_pulse_gen                     ; pulse_gen       ; work         ;
+;    |pulse_gen:gen_pulse[6].u_pulse_gen| ; 290 (290)           ; 163 (163)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|pulse_gen:gen_pulse[6].u_pulse_gen                     ; pulse_gen       ; work         ;
+;    |pulse_gen:gen_pulse[7].u_pulse_gen| ; 290 (290)           ; 163 (163)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|pulse_gen:gen_pulse[7].u_pulse_gen                     ; pulse_gen       ; work         ;
+;    |spi_master:u_spi|                   ; 242 (242)           ; 94 (94)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|spi_master:u_spi                                       ; spi_master      ; work         ;
+;    |w5500_init:u_init|                  ; 325 (325)           ; 116 (116)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|w5500_init:u_init                                      ; w5500_init      ; work         ;
+;    |w5500_receive:u_recv|               ; 650 (650)           ; 268 (268)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|w5500_receive:u_recv                                   ; w5500_receive   ; work         ;
+;    |w5500_send:u_send|                  ; 129 (129)           ; 90 (90)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|w5500_send:u_send                                      ; w5500_send      ; work         ;
++-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                       ;
++-------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
+; Name                                                              ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF  ;
++-------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
+; altsyncram:buffer_rtl_0|altsyncram_03h1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 2048         ; 8            ; 2048         ; 8            ; 16384 ; None ;
++-------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------+
+; State Machine - |main|bus_owner                                                   ;
++--------------------+--------------------+--------------------+--------------------+
+; Name               ; bus_owner.BUS_INIT ; bus_owner.BUS_SEND ; bus_owner.BUS_RECV ;
++--------------------+--------------------+--------------------+--------------------+
+; bus_owner.BUS_INIT ; 0                  ; 0                  ; 0                  ;
+; bus_owner.BUS_RECV ; 1                  ; 0                  ; 1                  ;
+; bus_owner.BUS_SEND ; 1                  ; 1                  ; 0                  ;
++--------------------+--------------------+--------------------+--------------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------+
+; State Machine - |main|pulse_gen:gen_pulse[7].u_pulse_gen|state               ;
++-----------------+-------------+-----------------+-------------+--------------+
+; Name            ; state.S_RUN ; state.S_DIV_FIN ; state.S_DIV ; state.S_IDLE ;
++-----------------+-------------+-----------------+-------------+--------------+
+; state.S_IDLE    ; 0           ; 0               ; 0           ; 0            ;
+; state.S_DIV     ; 0           ; 0               ; 1           ; 1            ;
+; state.S_DIV_FIN ; 0           ; 1               ; 0           ; 1            ;
+; state.S_RUN     ; 1           ; 0               ; 0           ; 1            ;
++-----------------+-------------+-----------------+-------------+--------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------+
+; State Machine - |main|pulse_gen:gen_pulse[6].u_pulse_gen|state               ;
++-----------------+-------------+-----------------+-------------+--------------+
+; Name            ; state.S_RUN ; state.S_DIV_FIN ; state.S_DIV ; state.S_IDLE ;
++-----------------+-------------+-----------------+-------------+--------------+
+; state.S_IDLE    ; 0           ; 0               ; 0           ; 0            ;
+; state.S_DIV     ; 0           ; 0               ; 1           ; 1            ;
+; state.S_DIV_FIN ; 0           ; 1               ; 0           ; 1            ;
+; state.S_RUN     ; 1           ; 0               ; 0           ; 1            ;
++-----------------+-------------+-----------------+-------------+--------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------+
+; State Machine - |main|pulse_gen:gen_pulse[5].u_pulse_gen|state               ;
++-----------------+-------------+-----------------+-------------+--------------+
+; Name            ; state.S_RUN ; state.S_DIV_FIN ; state.S_DIV ; state.S_IDLE ;
++-----------------+-------------+-----------------+-------------+--------------+
+; state.S_IDLE    ; 0           ; 0               ; 0           ; 0            ;
+; state.S_DIV     ; 0           ; 0               ; 1           ; 1            ;
+; state.S_DIV_FIN ; 0           ; 1               ; 0           ; 1            ;
+; state.S_RUN     ; 1           ; 0               ; 0           ; 1            ;
++-----------------+-------------+-----------------+-------------+--------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------+
+; State Machine - |main|pulse_gen:gen_pulse[4].u_pulse_gen|state               ;
++-----------------+-------------+-----------------+-------------+--------------+
+; Name            ; state.S_RUN ; state.S_DIV_FIN ; state.S_DIV ; state.S_IDLE ;
++-----------------+-------------+-----------------+-------------+--------------+
+; state.S_IDLE    ; 0           ; 0               ; 0           ; 0            ;
+; state.S_DIV     ; 0           ; 0               ; 1           ; 1            ;
+; state.S_DIV_FIN ; 0           ; 1               ; 0           ; 1            ;
+; state.S_RUN     ; 1           ; 0               ; 0           ; 1            ;
++-----------------+-------------+-----------------+-------------+--------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------+
+; State Machine - |main|pulse_gen:gen_pulse[3].u_pulse_gen|state               ;
++-----------------+-------------+-----------------+-------------+--------------+
+; Name            ; state.S_RUN ; state.S_DIV_FIN ; state.S_DIV ; state.S_IDLE ;
++-----------------+-------------+-----------------+-------------+--------------+
+; state.S_IDLE    ; 0           ; 0               ; 0           ; 0            ;
+; state.S_DIV     ; 0           ; 0               ; 1           ; 1            ;
+; state.S_DIV_FIN ; 0           ; 1               ; 0           ; 1            ;
+; state.S_RUN     ; 1           ; 0               ; 0           ; 1            ;
++-----------------+-------------+-----------------+-------------+--------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------+
+; State Machine - |main|pulse_gen:gen_pulse[2].u_pulse_gen|state               ;
++-----------------+-------------+-----------------+-------------+--------------+
+; Name            ; state.S_RUN ; state.S_DIV_FIN ; state.S_DIV ; state.S_IDLE ;
++-----------------+-------------+-----------------+-------------+--------------+
+; state.S_IDLE    ; 0           ; 0               ; 0           ; 0            ;
+; state.S_DIV     ; 0           ; 0               ; 1           ; 1            ;
+; state.S_DIV_FIN ; 0           ; 1               ; 0           ; 1            ;
+; state.S_RUN     ; 1           ; 0               ; 0           ; 1            ;
++-----------------+-------------+-----------------+-------------+--------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------+
+; State Machine - |main|pulse_gen:gen_pulse[1].u_pulse_gen|state               ;
++-----------------+-------------+-----------------+-------------+--------------+
+; Name            ; state.S_RUN ; state.S_DIV_FIN ; state.S_DIV ; state.S_IDLE ;
++-----------------+-------------+-----------------+-------------+--------------+
+; state.S_IDLE    ; 0           ; 0               ; 0           ; 0            ;
+; state.S_DIV     ; 0           ; 0               ; 1           ; 1            ;
+; state.S_DIV_FIN ; 0           ; 1               ; 0           ; 1            ;
+; state.S_RUN     ; 1           ; 0               ; 0           ; 1            ;
++-----------------+-------------+-----------------+-------------+--------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------+
+; State Machine - |main|pulse_gen:gen_pulse[0].u_pulse_gen|state               ;
++-----------------+-------------+-----------------+-------------+--------------+
+; Name            ; state.S_RUN ; state.S_DIV_FIN ; state.S_DIV ; state.S_IDLE ;
++-----------------+-------------+-----------------+-------------+--------------+
+; state.S_IDLE    ; 0           ; 0               ; 0           ; 0            ;
+; state.S_DIV     ; 0           ; 0               ; 1           ; 1            ;
+; state.S_DIV_FIN ; 0           ; 1               ; 0           ; 1            ;
+; state.S_RUN     ; 1           ; 0               ; 0           ; 1            ;
++-----------------+-------------+-----------------+-------------+--------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |main|w5500_send:u_send|state                                                                                                     ;
++-------------------+----------------+------------------+-------------------+------------------+-------------------+-----------------+--------------+
+; Name              ; state.S_FINISH ; state.S_SEND_CMD ; state.S_UPDATE_WR ; state.S_WR_DATA2 ; state.S_TXWR_WAIT ; state.S_RD_TXWR ; state.S_IDLE ;
++-------------------+----------------+------------------+-------------------+------------------+-------------------+-----------------+--------------+
+; state.S_IDLE      ; 0              ; 0                ; 0                 ; 0                ; 0                 ; 0               ; 0            ;
+; state.S_RD_TXWR   ; 0              ; 0                ; 0                 ; 0                ; 0                 ; 1               ; 1            ;
+; state.S_TXWR_WAIT ; 0              ; 0                ; 0                 ; 0                ; 1                 ; 0               ; 1            ;
+; state.S_WR_DATA2  ; 0              ; 0                ; 0                 ; 1                ; 0                 ; 0               ; 1            ;
+; state.S_UPDATE_WR ; 0              ; 0                ; 1                 ; 0                ; 0                 ; 0               ; 1            ;
+; state.S_SEND_CMD  ; 0              ; 1                ; 0                 ; 0                ; 0                 ; 0               ; 1            ;
+; state.S_FINISH    ; 1              ; 0                ; 0                 ; 0                ; 0                 ; 0               ; 1            ;
++-------------------+----------------+------------------+-------------------+------------------+-------------------+-----------------+--------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |main|w5500_receive:u_recv|main_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++---------------------------------+-------------------------+------------------------+----------------------------+--------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-----------------------------+---------------------------+------------------------+-----------------------+-------------------------------+----------------------------+--------------------------+---------------------------+--------------------------+-------------------------+-------------------------+-----------------------+-----------------------------+-------------------------+------------------------+-------------------------------+------------------------------+-----------------------------+-------------------------+-------------------------+----------------------------+-------------------------+-------------------------+-----------------------+---------------------------------+--------------------------------+-------------------------------+-----------------------------+------------------------------+-----------------------------+---------------------------+---------------------------+------------------------+------------------------+
+; Name                            ; main_state.S_STAT_WR_B5 ; main_state.S_STAT_DONE ; main_state.S_STAT_SEND_CMD ; main_state.S_STAT_UPD_WR ; main_state.S_STAT_WR_B4 ; main_state.S_STAT_WR_B3 ; main_state.S_STAT_WR_B2 ; main_state.S_STAT_WR_B1 ; main_state.S_STAT_TXWR_WAIT ; main_state.S_STAT_RD_TXWR ; main_state.S_ECHO_WAIT ; main_state.S_ECHO_REQ ; main_state.S_SEND_CLEAR_IR_WR ; main_state.S_SEND_CLEAR_IR ; main_state.S_DISCON_WAIT ; main_state.S_DISCON_CLOSE ; main_state.S_RETRY_DELAY ; main_state.S_ERROR_WAIT ; main_state.S_SOCK_CLOSE ; main_state.S_RECV_CMD ; main_state.S_RECV_UPDATE_RD ; main_state.S_RECV_DATA2 ; main_state.S_RECV_DATA ; main_state.S_RECV_CALC_OFFSET ; main_state.S_RECV_CHECK_SIZE ; main_state.S_LINK_DOWN_WAIT ; main_state.S_RECV_RSR_H ; main_state.S_LINK_CHECK ; main_state.S_POLL_CHECK_IR ; main_state.S_POLL_S0_IR ; main_state.S_POLL_CHECK ; main_state.S_POLL_SIR ; main_state.S_SOCK_VERIFY_LISTEN ; main_state.S_SOCK_CHECK_LISTEN ; main_state.S_SOCK_LISTEN_WAIT ; main_state.S_SOCK_LISTEN_CR ; main_state.S_SOCK_CHECK_INIT ; main_state.S_SOCK_OPEN_WAIT ; main_state.S_SOCK_OPEN_CR ; main_state.S_SOCK_OPEN_MR ; main_state.S_SOCK_PORT ; main_state.S_WAIT_INIT ;
++---------------------------------+-------------------------+------------------------+----------------------------+--------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-----------------------------+---------------------------+------------------------+-----------------------+-------------------------------+----------------------------+--------------------------+---------------------------+--------------------------+-------------------------+-------------------------+-----------------------+-----------------------------+-------------------------+------------------------+-------------------------------+------------------------------+-----------------------------+-------------------------+-------------------------+----------------------------+-------------------------+-------------------------+-----------------------+---------------------------------+--------------------------------+-------------------------------+-----------------------------+------------------------------+-----------------------------+---------------------------+---------------------------+------------------------+------------------------+
+; main_state.S_WAIT_INIT          ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ;
+; main_state.S_SOCK_PORT          ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 1                      ; 1                      ;
+; main_state.S_SOCK_OPEN_MR       ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 1                         ; 0                      ; 1                      ;
+; main_state.S_SOCK_OPEN_CR       ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 1                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_SOCK_OPEN_WAIT     ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 1                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_SOCK_CHECK_INIT    ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 1                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_SOCK_LISTEN_CR     ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 1                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_SOCK_LISTEN_WAIT   ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 1                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_SOCK_CHECK_LISTEN  ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 1                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_SOCK_VERIFY_LISTEN ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 1                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_POLL_SIR           ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 1                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_POLL_CHECK         ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 1                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_POLL_S0_IR         ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 1                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_POLL_CHECK_IR      ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 1                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_LINK_CHECK         ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 1                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_RECV_RSR_H         ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 1                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_LINK_DOWN_WAIT     ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 1                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_RECV_CHECK_SIZE    ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 1                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_RECV_CALC_OFFSET   ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 1                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_RECV_DATA          ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 1                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_RECV_DATA2         ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 1                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_RECV_UPDATE_RD     ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 1                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_RECV_CMD           ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 1                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_SOCK_CLOSE         ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 1                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_ERROR_WAIT         ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 1                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_RETRY_DELAY        ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 1                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_DISCON_CLOSE       ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 1                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_DISCON_WAIT        ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 1                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_SEND_CLEAR_IR      ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 1                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_SEND_CLEAR_IR_WR   ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 1                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_ECHO_REQ           ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 1                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_ECHO_WAIT          ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 1                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_STAT_RD_TXWR       ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 1                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_STAT_TXWR_WAIT     ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_STAT_WR_B1         ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 1                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_STAT_WR_B2         ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 1                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_STAT_WR_B3         ; 0                       ; 0                      ; 0                          ; 0                        ; 0                       ; 1                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_STAT_WR_B4         ; 0                       ; 0                      ; 0                          ; 0                        ; 1                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_STAT_UPD_WR        ; 0                       ; 0                      ; 0                          ; 1                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_STAT_SEND_CMD      ; 0                       ; 0                      ; 1                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_STAT_DONE          ; 0                       ; 1                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
+; main_state.S_STAT_WR_B5         ; 1                       ; 0                      ; 0                          ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                           ; 0                         ; 0                      ; 0                     ; 0                             ; 0                          ; 0                        ; 0                         ; 0                        ; 0                       ; 0                       ; 0                     ; 0                           ; 0                       ; 0                      ; 0                             ; 0                            ; 0                           ; 0                       ; 0                       ; 0                          ; 0                       ; 0                       ; 0                     ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ;
++---------------------------------+-------------------------+------------------------+----------------------------+--------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-----------------------------+---------------------------+------------------------+-----------------------+-------------------------------+----------------------------+--------------------------+---------------------------+--------------------------+-------------------------+-------------------------+-----------------------+-----------------------------+-------------------------+------------------------+-------------------------------+------------------------------+-----------------------------+-------------------------+-------------------------+----------------------------+-------------------------+-------------------------+-----------------------+---------------------------------+--------------------------------+-------------------------------+-----------------------------+------------------------------+-----------------------------+---------------------------+---------------------------+------------------------+------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------+
+; State Machine - |main|w5500_init:u_init|fdm1_next       ;
++----------------------------+----------------------------+
+; Name                       ; fdm1_next.S_BUF_INIT_START ;
++----------------------------+----------------------------+
+; fdm1_next.S_IDLE           ; 0                          ;
+; fdm1_next.S_BUF_INIT_START ; 1                          ;
++----------------------------+----------------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------+
+; State Machine - |main|w5500_init:u_init|vdm_target                            ;
++---------------+---------------+---------------+---------------+---------------+
+; Name          ; vdm_target.11 ; vdm_target.10 ; vdm_target.01 ; vdm_target.00 ;
++---------------+---------------+---------------+---------------+---------------+
+; vdm_target.00 ; 0             ; 0             ; 0             ; 0             ;
+; vdm_target.01 ; 0             ; 0             ; 1             ; 1             ;
+; vdm_target.10 ; 0             ; 1             ; 0             ; 1             ;
+; vdm_target.11 ; 1             ; 0             ; 0             ; 1             ;
++---------------+---------------+---------------+---------------+---------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |main|w5500_init:u_init|main_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------------------------+------------------------+----------------------------+-----------------------------+---------------------------+--------------------------+--------------------------+-------------------------+-------------------------+---------------------------------+--------------------------------+-------------------------------+-----------------------------+------------------------------+-----------------------------+---------------------------+---------------------------+------------------------+------------------------+----------------------+---------------------+---------------------+----------------------------+--------------------------+-----------------------------+------------------------+------------------------+------------------------+-----------------------+----------------------+----------------------+------------------------+---------------------------+--------------------------+---------------------------+-------------------------+-------------------+
+; Name                            ; main_state.S_INIT_DONE ; main_state.S_BUF_INIT_DONE ; main_state.S_FDM1_WAIT_BUSY ; main_state.S_PRELOAD_WAIT ; main_state.S_PRELOAD_VDM ; main_state.S_RETRY_DELAY ; main_state.S_ERROR_WAIT ; main_state.S_SOCK_CLOSE ; main_state.S_SOCK_VERIFY_LISTEN ; main_state.S_SOCK_CHECK_LISTEN ; main_state.S_SOCK_LISTEN_WAIT ; main_state.S_SOCK_LISTEN_CR ; main_state.S_SOCK_CHECK_INIT ; main_state.S_SOCK_OPEN_WAIT ; main_state.S_SOCK_OPEN_CR ; main_state.S_SOCK_OPEN_MR ; main_state.S_SOCK_PORT ; main_state.S_SOCK_MSSR ; main_state.S_WR_SIMR ; main_state.S_WR_RCR ; main_state.S_WR_RTR ; main_state.S_BUF_INIT_NEXT ; main_state.S_BUF_INIT_TX ; main_state.S_BUF_INIT_START ; main_state.S_WR_SIPR_0 ; main_state.S_WR_SHAR_0 ; main_state.S_WR_SUBR_0 ; main_state.S_WR_GAR_0 ; main_state.S_SW_RST2 ; main_state.S_SW_RST1 ; main_state.S_WAIT_LINK ; main_state.S_HW_RST_WAIT2 ; main_state.S_HW_RST_HIGH ; main_state.S_HW_RST_WAIT1 ; main_state.S_HW_RST_LOW ; main_state.S_IDLE ;
++---------------------------------+------------------------+----------------------------+-----------------------------+---------------------------+--------------------------+--------------------------+-------------------------+-------------------------+---------------------------------+--------------------------------+-------------------------------+-----------------------------+------------------------------+-----------------------------+---------------------------+---------------------------+------------------------+------------------------+----------------------+---------------------+---------------------+----------------------------+--------------------------+-----------------------------+------------------------+------------------------+------------------------+-----------------------+----------------------+----------------------+------------------------+---------------------------+--------------------------+---------------------------+-------------------------+-------------------+
+; main_state.S_IDLE               ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 0                 ;
+; main_state.S_HW_RST_LOW         ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 1                       ; 1                 ;
+; main_state.S_HW_RST_WAIT1       ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 1                         ; 0                       ; 1                 ;
+; main_state.S_HW_RST_HIGH        ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 1                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_HW_RST_WAIT2       ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 1                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_WAIT_LINK          ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 1                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_SW_RST1            ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 1                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_SW_RST2            ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 1                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_WR_GAR_0           ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 1                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_WR_SUBR_0          ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 1                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_WR_SHAR_0          ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 1                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_WR_SIPR_0          ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 1                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_BUF_INIT_START     ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 1                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_BUF_INIT_TX        ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 1                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_BUF_INIT_NEXT      ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 1                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_WR_RTR             ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 1                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_WR_RCR             ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 1                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_WR_SIMR            ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 1                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_SOCK_MSSR          ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 1                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_SOCK_PORT          ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 1                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_SOCK_OPEN_MR       ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 1                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_SOCK_OPEN_CR       ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 1                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_SOCK_OPEN_WAIT     ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 1                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_SOCK_CHECK_INIT    ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 1                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_SOCK_LISTEN_CR     ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 1                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_SOCK_LISTEN_WAIT   ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 1                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_SOCK_CHECK_LISTEN  ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 1                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_SOCK_VERIFY_LISTEN ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 1                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_SOCK_CLOSE         ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 1                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_ERROR_WAIT         ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 1                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_RETRY_DELAY        ; 0                      ; 0                          ; 0                           ; 0                         ; 0                        ; 1                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_PRELOAD_VDM        ; 0                      ; 0                          ; 0                           ; 0                         ; 1                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_PRELOAD_WAIT       ; 0                      ; 0                          ; 0                           ; 1                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_FDM1_WAIT_BUSY     ; 0                      ; 0                          ; 1                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_BUF_INIT_DONE      ; 0                      ; 1                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
+; main_state.S_INIT_DONE          ; 1                      ; 0                          ; 0                           ; 0                         ; 0                        ; 0                        ; 0                       ; 0                       ; 0                               ; 0                              ; 0                             ; 0                           ; 0                            ; 0                           ; 0                         ; 0                         ; 0                      ; 0                      ; 0                    ; 0                   ; 0                   ; 0                          ; 0                        ; 0                           ; 0                      ; 0                      ; 0                      ; 0                     ; 0                    ; 0                    ; 0                      ; 0                         ; 0                        ; 0                         ; 0                       ; 1                 ;
++---------------------------------+------------------------+----------------------------+-----------------------------+---------------------------+--------------------------+--------------------------+-------------------------+-------------------------+---------------------------------+--------------------------------+-------------------------------+-----------------------------+------------------------------+-----------------------------+---------------------------+---------------------------+------------------------+------------------------+----------------------+---------------------+---------------------+----------------------------+--------------------------+-----------------------------+------------------------+------------------------+------------------------+-----------------------+----------------------+----------------------+------------------------+---------------------------+--------------------------+---------------------------+-------------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------+
+; State Machine - |main|spi_master:u_spi|state                            ;
++--------------+--------------+--------------+-------------+--------------+
+; Name         ; state.S_DONE ; state.S_HIGH ; state.S_LOW ; state.S_IDLE ;
++--------------+--------------+--------------+-------------+--------------+
+; state.S_IDLE ; 0            ; 0            ; 0           ; 0            ;
+; state.S_LOW  ; 0            ; 0            ; 1           ; 1            ;
+; state.S_HIGH ; 0            ; 1            ; 0           ; 1            ;
+; state.S_DONE ; 1            ; 0            ; 0           ; 1            ;
++--------------+--------------+--------------+-------------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                           ;
++--------------------------------------------------------+-----------------------------------------------------+
+; Register name                                          ; Reason for Removal                                  ;
++--------------------------------------------------------+-----------------------------------------------------+
+; w5500_receive:u_recv|rx_offset[11..15]                 ; Stuck at GND due to stuck port data_in              ;
+; w5500_receive:u_recv|stat_force                        ; Stuck at GND due to stuck port data_in              ;
+; w5500_receive:u_recv|stat_snap[12..15]                 ; Stuck at GND due to stuck port data_in              ;
+; w5500_receive:u_recv|stat_offset[11..15]               ; Stuck at GND due to stuck port data_in              ;
+; w5500_receive:u_recv|in_status_last[12..14]            ; Merged with w5500_receive:u_recv|in_status_last[15] ;
+; w5500_receive:u_recv|timer_target[1..3,6,9..11,19..25] ; Merged with w5500_receive:u_recv|timer_target[0]    ;
+; w5500_receive:u_recv|timer_target[5,8,18]              ; Merged with w5500_receive:u_recv|timer_target[13]   ;
+; w5500_receive:u_recv|timer_target[16,17]               ; Merged with w5500_receive:u_recv|timer_target[15]   ;
+; w5500_receive:u_recv|timer_target[4,7,14]              ; Merged with w5500_receive:u_recv|timer_target[12]   ;
+; w5500_init:u_init|timer_target[1..3,6,11,22,24,25]     ; Merged with w5500_init:u_init|timer_target[0]       ;
+; w5500_init:u_init|timer_target[9,20,23]                ; Merged with w5500_init:u_init|timer_target[19]      ;
+; w5500_init:u_init|timer_target[5,8,18]                 ; Merged with w5500_init:u_init|timer_target[13]      ;
+; w5500_init:u_init|timer_target[4]                      ; Merged with w5500_init:u_init|timer_target[14]      ;
+; w5500_init:u_init|buf_rd_init[1..10]                   ; Merged with w5500_init:u_init|buf_rd_init[0]        ;
+; w5500_init:u_init|spi_cmd_len[0,3..10]                 ; Merged with w5500_init:u_init|buf_rd_init[0]        ;
+; w5500_send:u_send|spi_cmd_addr[12..15]                 ; Merged with w5500_send:u_send|spi_cmd_addr[11]      ;
+; w5500_send:u_send|spi_cmd_bsb[2..4]                    ; Merged with w5500_send:u_send|spi_cmd_addr[11]      ;
+; w5500_receive:u_recv|spi_cmd_addr[12..15]              ; Merged with w5500_receive:u_recv|spi_cmd_addr[11]   ;
+; w5500_init:u_init|spi_cmd_addr[6..9,11..15]            ; Merged with w5500_init:u_init|spi_cmd_addr[10]      ;
+; w5500_init:u_init|spi_cmd_bsb[1]                       ; Merged with w5500_init:u_init|spi_cmd_addr[10]      ;
+; w5500_init:u_init|spi_cmd_wdata[13..15]                ; Merged with w5500_init:u_init|spi_cmd_wdata[11]     ;
+; w5500_receive:u_recv|spi_cmd_bsb[3,4]                  ; Merged with w5500_receive:u_recv|spi_cmd_bsb[2]     ;
+; w5500_send:u_send|tx_wr_ptr[0]                         ; Merged with w5500_send:u_send|tx_offset[0]          ;
+; w5500_send:u_send|tx_wr_ptr[1]                         ; Merged with w5500_send:u_send|tx_offset[1]          ;
+; w5500_send:u_send|tx_wr_ptr[2]                         ; Merged with w5500_send:u_send|tx_offset[2]          ;
+; w5500_send:u_send|tx_wr_ptr[3]                         ; Merged with w5500_send:u_send|tx_offset[3]          ;
+; w5500_send:u_send|tx_wr_ptr[4]                         ; Merged with w5500_send:u_send|tx_offset[4]          ;
+; w5500_send:u_send|tx_wr_ptr[5]                         ; Merged with w5500_send:u_send|tx_offset[5]          ;
+; w5500_send:u_send|tx_wr_ptr[6]                         ; Merged with w5500_send:u_send|tx_offset[6]          ;
+; w5500_send:u_send|tx_wr_ptr[7]                         ; Merged with w5500_send:u_send|tx_offset[7]          ;
+; w5500_send:u_send|tx_wr_ptr[8]                         ; Merged with w5500_send:u_send|tx_offset[8]          ;
+; w5500_send:u_send|tx_wr_ptr[9]                         ; Merged with w5500_send:u_send|tx_offset[9]          ;
+; w5500_send:u_send|tx_wr_ptr[10]                        ; Merged with w5500_send:u_send|tx_offset[10]         ;
+; w5500_receive:u_recv|rx_rd_ptr[0]                      ; Merged with w5500_receive:u_recv|rx_offset[0]       ;
+; w5500_receive:u_recv|rx_rd_ptr[1]                      ; Merged with w5500_receive:u_recv|rx_offset[1]       ;
+; w5500_receive:u_recv|rx_rd_ptr[2]                      ; Merged with w5500_receive:u_recv|rx_offset[2]       ;
+; w5500_receive:u_recv|rx_rd_ptr[3]                      ; Merged with w5500_receive:u_recv|rx_offset[3]       ;
+; w5500_receive:u_recv|rx_rd_ptr[4]                      ; Merged with w5500_receive:u_recv|rx_offset[4]       ;
+; w5500_receive:u_recv|rx_rd_ptr[5]                      ; Merged with w5500_receive:u_recv|rx_offset[5]       ;
+; w5500_receive:u_recv|rx_rd_ptr[6]                      ; Merged with w5500_receive:u_recv|rx_offset[6]       ;
+; w5500_receive:u_recv|rx_rd_ptr[7]                      ; Merged with w5500_receive:u_recv|rx_offset[7]       ;
+; w5500_receive:u_recv|rx_rd_ptr[8]                      ; Merged with w5500_receive:u_recv|rx_offset[8]       ;
+; w5500_receive:u_recv|rx_rd_ptr[9]                      ; Merged with w5500_receive:u_recv|rx_offset[9]       ;
+; w5500_receive:u_recv|rx_rd_ptr[10]                     ; Merged with w5500_receive:u_recv|rx_offset[10]      ;
+; w5500_receive:u_recv|stat_ptr[10]                      ; Merged with w5500_receive:u_recv|stat_offset[10]    ;
+; w5500_receive:u_recv|stat_ptr[9]                       ; Merged with w5500_receive:u_recv|stat_offset[9]     ;
+; w5500_receive:u_recv|stat_ptr[8]                       ; Merged with w5500_receive:u_recv|stat_offset[8]     ;
+; w5500_receive:u_recv|stat_ptr[7]                       ; Merged with w5500_receive:u_recv|stat_offset[7]     ;
+; w5500_receive:u_recv|stat_ptr[6]                       ; Merged with w5500_receive:u_recv|stat_offset[6]     ;
+; w5500_receive:u_recv|stat_ptr[5]                       ; Merged with w5500_receive:u_recv|stat_offset[5]     ;
+; w5500_receive:u_recv|stat_ptr[4]                       ; Merged with w5500_receive:u_recv|stat_offset[4]     ;
+; w5500_receive:u_recv|stat_ptr[3]                       ; Merged with w5500_receive:u_recv|stat_offset[3]     ;
+; w5500_receive:u_recv|stat_ptr[2]                       ; Merged with w5500_receive:u_recv|stat_offset[2]     ;
+; w5500_receive:u_recv|stat_ptr[1]                       ; Merged with w5500_receive:u_recv|stat_offset[1]     ;
+; w5500_receive:u_recv|stat_ptr[0]                       ; Merged with w5500_receive:u_recv|stat_offset[0]     ;
+; w5500_receive:u_recv|spi_cmd_addr[11]                  ; Merged with w5500_receive:u_recv|spi_cmd_bsb[2]     ;
+; spi_master:u_spi|clk_cnt[0..6]                         ; Merged with spi_master:u_spi|clk_cnt[7]             ;
+; spi_master:u_spi|clk_cnt[7]                            ; Lost fanout                                         ;
+; w5500_receive:u_recv|in_status_last[15]                ; Stuck at GND due to stuck port data_in              ;
+; w5500_receive:u_recv|timer_target[0]                   ; Stuck at GND due to stuck port data_in              ;
+; w5500_init:u_init|timer_target[0]                      ; Stuck at GND due to stuck port data_in              ;
+; w5500_init:u_init|buf_rd_init[0]                       ; Stuck at GND due to stuck port data_in              ;
+; w5500_send:u_send|spi_cmd_addr[11]                     ; Stuck at GND due to stuck port data_in              ;
+; pulse_gen:gen_pulse[7].u_pulse_gen|state~8             ; Lost fanout                                         ;
+; pulse_gen:gen_pulse[7].u_pulse_gen|state~9             ; Lost fanout                                         ;
+; pulse_gen:gen_pulse[6].u_pulse_gen|state~8             ; Lost fanout                                         ;
+; pulse_gen:gen_pulse[6].u_pulse_gen|state~9             ; Lost fanout                                         ;
+; pulse_gen:gen_pulse[5].u_pulse_gen|state~8             ; Lost fanout                                         ;
+; pulse_gen:gen_pulse[5].u_pulse_gen|state~9             ; Lost fanout                                         ;
+; pulse_gen:gen_pulse[4].u_pulse_gen|state~8             ; Lost fanout                                         ;
+; pulse_gen:gen_pulse[4].u_pulse_gen|state~9             ; Lost fanout                                         ;
+; pulse_gen:gen_pulse[3].u_pulse_gen|state~8             ; Lost fanout                                         ;
+; pulse_gen:gen_pulse[3].u_pulse_gen|state~9             ; Lost fanout                                         ;
+; pulse_gen:gen_pulse[2].u_pulse_gen|state~8             ; Lost fanout                                         ;
+; pulse_gen:gen_pulse[2].u_pulse_gen|state~9             ; Lost fanout                                         ;
+; pulse_gen:gen_pulse[1].u_pulse_gen|state~8             ; Lost fanout                                         ;
+; pulse_gen:gen_pulse[1].u_pulse_gen|state~9             ; Lost fanout                                         ;
+; pulse_gen:gen_pulse[0].u_pulse_gen|state~8             ; Lost fanout                                         ;
+; pulse_gen:gen_pulse[0].u_pulse_gen|state~9             ; Lost fanout                                         ;
+; w5500_send:u_send|state~11                             ; Lost fanout                                         ;
+; w5500_send:u_send|state~12                             ; Lost fanout                                         ;
+; w5500_send:u_send|state~13                             ; Lost fanout                                         ;
+; w5500_receive:u_recv|main_state~45                     ; Lost fanout                                         ;
+; w5500_receive:u_recv|main_state~46                     ; Lost fanout                                         ;
+; w5500_receive:u_recv|main_state~47                     ; Lost fanout                                         ;
+; w5500_receive:u_recv|main_state~48                     ; Lost fanout                                         ;
+; w5500_receive:u_recv|main_state~49                     ; Lost fanout                                         ;
+; w5500_receive:u_recv|main_state~50                     ; Lost fanout                                         ;
+; w5500_receive:u_recv|main_state~51                     ; Lost fanout                                         ;
+; w5500_init:u_init|fdm1_next~4                          ; Lost fanout                                         ;
+; w5500_init:u_init|fdm1_next~5                          ; Lost fanout                                         ;
+; w5500_init:u_init|fdm1_next~7                          ; Lost fanout                                         ;
+; w5500_init:u_init|fdm1_next~8                          ; Lost fanout                                         ;
+; w5500_init:u_init|fdm1_next~9                          ; Lost fanout                                         ;
+; w5500_init:u_init|fdm1_next~10                         ; Lost fanout                                         ;
+; w5500_init:u_init|vdm_target~8                         ; Lost fanout                                         ;
+; w5500_init:u_init|vdm_target~9                         ; Lost fanout                                         ;
+; w5500_init:u_init|main_state~42                        ; Lost fanout                                         ;
+; w5500_init:u_init|main_state~43                        ; Lost fanout                                         ;
+; w5500_init:u_init|main_state~44                        ; Lost fanout                                         ;
+; w5500_init:u_init|main_state~45                        ; Lost fanout                                         ;
+; w5500_init:u_init|main_state~46                        ; Lost fanout                                         ;
+; w5500_init:u_init|main_state~47                        ; Lost fanout                                         ;
+; w5500_init:u_init|main_state~48                        ; Lost fanout                                         ;
+; spi_master:u_spi|state~7                               ; Lost fanout                                         ;
+; spi_master:u_spi|state~8                               ; Lost fanout                                         ;
+; w5500_init:u_init|spi_cmd_addr[10]                     ; Stuck at GND due to stuck port data_in              ;
+; w5500_receive:u_recv|spi_cmd_bsb[2]                    ; Stuck at GND due to stuck port data_in              ;
+; w5500_init:u_init|spi_cmd_wdata[11]                    ; Stuck at GND due to stuck port data_in              ;
+; w5500_init:u_init|preload_type[2]                      ; Stuck at GND due to stuck port data_in              ;
+; preload_type_reg[2]                                    ; Stuck at GND due to stuck port data_in              ;
+; Total Number of Removed Registers = 195                ;                                                     ;
++--------------------------------------------------------+-----------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                              ;
++--------------------------------------+---------------------------+-----------------------------------------------------------------------+
+; Register name                        ; Reason for Removal        ; Registers Removed due to This Register                                ;
++--------------------------------------+---------------------------+-----------------------------------------------------------------------+
+; w5500_init:u_init|timer_target[0]    ; Stuck at GND              ; w5500_init:u_init|buf_rd_init[0], w5500_init:u_init|spi_cmd_wdata[11] ;
+;                                      ; due to stuck port data_in ;                                                                       ;
+; w5500_receive:u_recv|stat_snap[15]   ; Stuck at GND              ; w5500_receive:u_recv|in_status_last[15]                               ;
+;                                      ; due to stuck port data_in ;                                                                       ;
+; w5500_receive:u_recv|timer_target[0] ; Stuck at GND              ; w5500_receive:u_recv|spi_cmd_bsb[2]                                   ;
+;                                      ; due to stuck port data_in ;                                                                       ;
+; w5500_init:u_init|preload_type[2]    ; Stuck at GND              ; preload_type_reg[2]                                                   ;
+;                                      ; due to stuck port data_in ;                                                                       ;
++--------------------------------------+---------------------------+-----------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 2494  ;
+; Number of registers using Synchronous Clear  ; 467   ;
+; Number of registers using Synchronous Load   ; 105   ;
+; Number of registers using Asynchronous Clear ; 2398  ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 2211  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------+
+; Inverted Register Statistics                                ;
++---------------------------------------------------+---------+
+; Inverted Register                                 ; Fan out ;
++---------------------------------------------------+---------+
+; w5500_init:u_init|w5500_rst                       ; 2       ;
+; pulse_gen:gen_pulse[0].u_pulse_gen|pulse_out      ; 3       ;
+; pulse_gen:gen_pulse[1].u_pulse_gen|pulse_out      ; 3       ;
+; pulse_gen:gen_pulse[2].u_pulse_gen|pulse_out      ; 3       ;
+; pulse_gen:gen_pulse[3].u_pulse_gen|pulse_out      ; 3       ;
+; pulse_gen:gen_pulse[4].u_pulse_gen|pulse_out      ; 2       ;
+; pulse_gen:gen_pulse[5].u_pulse_gen|pulse_out      ; 3       ;
+; pulse_gen:gen_pulse[6].u_pulse_gen|pulse_out      ; 3       ;
+; pulse_gen:gen_pulse[7].u_pulse_gen|pulse_out      ; 3       ;
+; dir_reg[0]                                        ; 2       ;
+; dir_reg[1]                                        ; 2       ;
+; dir_reg[2]                                        ; 2       ;
+; dir_reg[3]                                        ; 2       ;
+; dir_reg[4]                                        ; 2       ;
+; dir_reg[5]                                        ; 2       ;
+; dir_reg[6]                                        ; 2       ;
+; dir_reg[7]                                        ; 2       ;
+; pulse_gen:gen_pulse[0].u_pulse_gen|half_period[0] ; 1       ;
+; pulse_gen:gen_pulse[1].u_pulse_gen|half_period[0] ; 1       ;
+; pulse_gen:gen_pulse[2].u_pulse_gen|half_period[0] ; 1       ;
+; pulse_gen:gen_pulse[3].u_pulse_gen|half_period[0] ; 1       ;
+; pulse_gen:gen_pulse[4].u_pulse_gen|half_period[0] ; 1       ;
+; pulse_gen:gen_pulse[5].u_pulse_gen|half_period[0] ; 1       ;
+; pulse_gen:gen_pulse[6].u_pulse_gen|half_period[0] ; 1       ;
+; pulse_gen:gen_pulse[7].u_pulse_gen|half_period[0] ; 1       ;
+; w5500_send:u_send|spi_cmd_om[1]                   ; 2       ;
+; w5500_receive:u_recv|w5500_int_d2                 ; 3       ;
+; w5500_receive:u_recv|w5500_int_d3                 ; 1       ;
+; w5500_receive:u_recv|w5500_int_d1                 ; 1       ;
+; pulse_gen:gen_pulse[0].u_pulse_gen|dsor[0]        ; 2       ;
+; pulse_gen:gen_pulse[1].u_pulse_gen|dsor[0]        ; 2       ;
+; pulse_gen:gen_pulse[2].u_pulse_gen|dsor[0]        ; 2       ;
+; pulse_gen:gen_pulse[3].u_pulse_gen|dsor[0]        ; 2       ;
+; pulse_gen:gen_pulse[4].u_pulse_gen|dsor[0]        ; 2       ;
+; pulse_gen:gen_pulse[5].u_pulse_gen|dsor[0]        ; 2       ;
+; pulse_gen:gen_pulse[6].u_pulse_gen|dsor[0]        ; 2       ;
+; pulse_gen:gen_pulse[7].u_pulse_gen|dsor[0]        ; 2       ;
+; w5500_send:u_send|spi_cmd_bsb[0]                  ; 2       ;
+; Total number of inverted registers = 38           ;         ;
++---------------------------------------------------+---------+
+
+
++----------------------------------------------+
+; Registers Packed Into Inferred Megafunctions ;
++-------------------+--------------+-----------+
+; Register Name     ; Megafunction ; Type      ;
++-------------------+--------------+-----------+
+; buf_rd_data[0..7] ; buffer_rtl_0 ; RAM       ;
++-------------------+--------------+-----------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |main|pulse_gen:gen_pulse[7].u_pulse_gen|div_bit[3]  ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |main|pulse_gen:gen_pulse[6].u_pulse_gen|div_bit[4]  ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |main|pulse_gen:gen_pulse[5].u_pulse_gen|div_bit[4]  ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |main|pulse_gen:gen_pulse[4].u_pulse_gen|div_bit[1]  ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |main|pulse_gen:gen_pulse[3].u_pulse_gen|div_bit[1]  ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |main|pulse_gen:gen_pulse[2].u_pulse_gen|div_bit[4]  ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |main|pulse_gen:gen_pulse[1].u_pulse_gen|div_bit[4]  ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |main|pulse_gen:gen_pulse[0].u_pulse_gen|div_bit[1]  ;
+; 3:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |main|w5500_receive:u_recv|timer_cnt[20]             ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |main|preload_cnt[1]                                 ;
+; 3:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |main|w5500_init:u_init|timer_cnt[18]                ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |main|spi_master:u_spi|cs_idle_cnt[3]                ;
+; 3:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |main|w5500_receive:u_recv|led3_cnt[12]              ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |main|in_deb_cnt[11]                                 ;
+; 3:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |main|w5500_receive:u_recv|link_poll_cnt[5]          ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; Yes        ; |main|w5500_receive:u_recv|rx_data_len[3]            ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |main|w5500_receive:u_recv|in_status_last[3]         ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |main|pg_stop[4]                                     ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |main|spi_master:u_spi|total_bytes[1]                ;
+; 4:1                ; 17 bits   ; 34 LEs        ; 34 LEs               ; 0 LEs                  ; Yes        ; |main|pulse_gen:gen_pulse[7].u_pulse_gen|div_rem[14] ;
+; 4:1                ; 17 bits   ; 34 LEs        ; 34 LEs               ; 0 LEs                  ; Yes        ; |main|pulse_gen:gen_pulse[6].u_pulse_gen|div_rem[6]  ;
+; 4:1                ; 17 bits   ; 34 LEs        ; 34 LEs               ; 0 LEs                  ; Yes        ; |main|pulse_gen:gen_pulse[5].u_pulse_gen|div_rem[11] ;
+; 4:1                ; 17 bits   ; 34 LEs        ; 34 LEs               ; 0 LEs                  ; Yes        ; |main|pulse_gen:gen_pulse[4].u_pulse_gen|div_rem[6]  ;
+; 4:1                ; 17 bits   ; 34 LEs        ; 34 LEs               ; 0 LEs                  ; Yes        ; |main|pulse_gen:gen_pulse[3].u_pulse_gen|div_rem[3]  ;
+; 4:1                ; 17 bits   ; 34 LEs        ; 34 LEs               ; 0 LEs                  ; Yes        ; |main|pulse_gen:gen_pulse[2].u_pulse_gen|div_rem[5]  ;
+; 4:1                ; 17 bits   ; 34 LEs        ; 34 LEs               ; 0 LEs                  ; Yes        ; |main|pulse_gen:gen_pulse[1].u_pulse_gen|div_rem[15] ;
+; 4:1                ; 17 bits   ; 34 LEs        ; 34 LEs               ; 0 LEs                  ; Yes        ; |main|pulse_gen:gen_pulse[0].u_pulse_gen|div_rem[16] ;
+; 5:1                ; 11 bits   ; 33 LEs        ; 11 LEs               ; 22 LEs                 ; Yes        ; |main|w5500_send:u_send|buf_rd_init[6]               ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |main|w5500_send:u_send|spi_cmd_wdata[7]             ;
+; 5:1                ; 11 bits   ; 33 LEs        ; 11 LEs               ; 22 LEs                 ; Yes        ; |main|w5500_receive:u_recv|buf_wr_init[0]            ;
+; 5:1                ; 11 bits   ; 33 LEs        ; 11 LEs               ; 22 LEs                 ; Yes        ; |main|spi_master:u_spi|byte_cnt[1]                   ;
+; 5:1                ; 11 bits   ; 33 LEs        ; 0 LEs                ; 33 LEs                 ; Yes        ; |main|spi_master:u_spi|buf_wr_addr[8]                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |main|w5500_init:u_init|buf_rd_init[0]               ;
+; 6:1                ; 11 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |main|w5500_receive:u_recv|spi_cmd_len[3]            ;
+; 6:1                ; 11 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |main|w5500_send:u_send|spi_cmd_len[7]               ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |main|spi_master:u_spi|bit_idx[0]                    ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |main|w5500_init:u_init|sock_cnt[2]                  ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |main|w5500_init:u_init|timer_target[10]             ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |main|w5500_receive:u_recv|timer_target[0]           ;
+; 7:1                ; 11 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |main|spi_master:u_spi|buf_rd_addr[8]                ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |main|w5500_init:u_init|timer_target[19]             ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |main|w5500_init:u_init|timer_target[14]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |main|w5500_receive:u_recv|timer_target[12]          ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |main|w5500_send:u_send|spi_cmd_rw                   ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |main|w5500_init:u_init|timer_target[12]             ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |main|w5500_send:u_send|spi_cmd_addr[3]              ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |main|w5500_send:u_send|spi_cmd_addr[2]              ;
+; 258:1              ; 16 bits   ; 2752 LEs      ; 16 LEs               ; 2736 LEs               ; Yes        ; |main|pg_freq_u[7][4]                                ;
+; 258:1              ; 16 bits   ; 2752 LEs      ; 16 LEs               ; 2736 LEs               ; Yes        ; |main|pg_freq_u[6][2]                                ;
+; 258:1              ; 16 bits   ; 2752 LEs      ; 16 LEs               ; 2736 LEs               ; Yes        ; |main|pg_freq_u[5][12]                               ;
+; 258:1              ; 16 bits   ; 2752 LEs      ; 16 LEs               ; 2736 LEs               ; Yes        ; |main|pg_freq_u[4][0]                                ;
+; 258:1              ; 16 bits   ; 2752 LEs      ; 16 LEs               ; 2736 LEs               ; Yes        ; |main|pg_freq_u[3][0]                                ;
+; 258:1              ; 16 bits   ; 2752 LEs      ; 16 LEs               ; 2736 LEs               ; Yes        ; |main|pg_freq_u[2][7]                                ;
+; 258:1              ; 16 bits   ; 2752 LEs      ; 16 LEs               ; 2736 LEs               ; Yes        ; |main|pg_freq_u[1][5]                                ;
+; 258:1              ; 16 bits   ; 2752 LEs      ; 16 LEs               ; 2736 LEs               ; Yes        ; |main|pg_freq_u[0][3]                                ;
+; 259:1              ; 8 bits    ; 1376 LEs      ; 8 LEs                ; 1368 LEs               ; Yes        ; |main|pg_start[4]                                    ;
+; 15:1               ; 2 bits    ; 20 LEs        ; 4 LEs                ; 16 LEs                 ; Yes        ; |main|w5500_init:u_init|spi_cmd_wdata[7]             ;
+; 23:1               ; 3 bits    ; 45 LEs        ; 30 LEs               ; 15 LEs                 ; Yes        ; |main|spi_master:u_spi|tx_byte[6]                    ;
+; 23:1               ; 2 bits    ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |main|spi_master:u_spi|tx_byte[2]                    ;
+; 24:1               ; 2 bits    ; 32 LEs        ; 20 LEs               ; 12 LEs                 ; Yes        ; |main|spi_master:u_spi|tx_byte[4]                    ;
+; 13:1               ; 5 bits    ; 40 LEs        ; 10 LEs               ; 30 LEs                 ; Yes        ; |main|w5500_receive:u_recv|spi_cmd_wdata[10]         ;
+; 15:1               ; 3 bits    ; 30 LEs        ; 6 LEs                ; 24 LEs                 ; Yes        ; |main|w5500_receive:u_recv|spi_cmd_wdata[9]          ;
+; 19:1               ; 2 bits    ; 24 LEs        ; 4 LEs                ; 20 LEs                 ; Yes        ; |main|w5500_init:u_init|spi_cmd_om[1]                ;
+; 19:1               ; 3 bits    ; 36 LEs        ; 3 LEs                ; 33 LEs                 ; Yes        ; |main|w5500_init:u_init|spi_cmd_bsb[2]               ;
+; 28:1               ; 6 bits    ; 108 LEs       ; 42 LEs               ; 66 LEs                 ; Yes        ; |main|w5500_receive:u_recv|spi_cmd_addr[10]          ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |main|spi_cmd_len[4]                                 ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |main|spi_master:u_spi|Add5                          ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |main|w5500_init:u_init|fdm1_next                    ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |main|buffer                                         ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |main|Selector0                                      ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |main|pulse_gen:gen_pulse[7].u_pulse_gen|state       ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |main|pulse_gen:gen_pulse[6].u_pulse_gen|state       ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |main|pulse_gen:gen_pulse[5].u_pulse_gen|state       ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |main|pulse_gen:gen_pulse[4].u_pulse_gen|state       ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |main|pulse_gen:gen_pulse[3].u_pulse_gen|state       ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |main|pulse_gen:gen_pulse[2].u_pulse_gen|state       ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |main|pulse_gen:gen_pulse[1].u_pulse_gen|state       ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |main|pulse_gen:gen_pulse[0].u_pulse_gen|state       ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |main|w5500_send:u_send|Selector1                    ;
+; 19:1               ; 3 bits    ; 36 LEs        ; 6 LEs                ; 30 LEs                 ; No         ; |main|w5500_init:u_init|main_state                   ;
+; 18:1               ; 4 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; No         ; |main|w5500_receive:u_recv|Selector32                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------+
+; Source assignments for altsyncram:buffer_rtl_0|altsyncram_03h1:auto_generated ;
++---------------------------------+--------------------+------+-----------------+
+; Assignment                      ; Value              ; From ; To              ;
++---------------------------------+--------------------+------+-----------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -               ;
++---------------------------------+--------------------+------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: altsyncram:buffer_rtl_0   ;
++------------------------------------+----------------------+----------------+
+; Parameter Name                     ; Value                ; Type           ;
++------------------------------------+----------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped        ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped        ;
+; WIDTH_A                            ; 8                    ; Untyped        ;
+; WIDTHAD_A                          ; 11                   ; Untyped        ;
+; NUMWORDS_A                         ; 2048                 ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped        ;
+; WIDTH_B                            ; 8                    ; Untyped        ;
+; WIDTHAD_B                          ; 11                   ; Untyped        ;
+; NUMWORDS_B                         ; 2048                 ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped        ;
+; BYTE_SIZE                          ; 8                    ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped        ;
+; INIT_FILE                          ; UNUSED               ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_03h1      ; Untyped        ;
++------------------------------------+----------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                    ;
++-------------------------------------------+-------------------------+
+; Name                                      ; Value                   ;
++-------------------------------------------+-------------------------+
+; Number of entity instances                ; 1                       ;
+; Entity Instance                           ; altsyncram:buffer_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT               ;
+;     -- WIDTH_A                            ; 8                       ;
+;     -- NUMWORDS_A                         ; 2048                    ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED            ;
+;     -- WIDTH_B                            ; 8                       ;
+;     -- NUMWORDS_B                         ; 2048                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                  ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED            ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                    ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                ;
++-------------------------------------------+-------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "w5500_receive:u_recv"    ;
++-------------------+-------+----------+--------------+
+; Port              ; Type  ; Severity ; Details      ;
++-------------------+-------+----------+--------------+
+; in_status[15..12] ; Input ; Info     ; Stuck at GND ;
++-------------------+-------+----------+--------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "spi_master:u_spi"                                                                              ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; debug_rx_buf_hi ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 42                          ;
+; cycloneiii_ff         ; 2494                        ;
+;     CLR               ; 216                         ;
+;     CLR SCLR          ; 65                          ;
+;     CLR SLD           ; 2                           ;
+;     ENA               ; 96                          ;
+;     ENA CLR           ; 1610                        ;
+;     ENA CLR SCLR      ; 402                         ;
+;     ENA CLR SLD       ; 103                         ;
+; cycloneiii_lcell_comb ; 3993                        ;
+;     arith             ; 1546                        ;
+;         2 data inputs ; 823                         ;
+;         3 data inputs ; 723                         ;
+;     normal            ; 2447                        ;
+;         0 data inputs ; 3                           ;
+;         1 data inputs ; 86                          ;
+;         2 data inputs ; 250                         ;
+;         3 data inputs ; 517                         ;
+;         4 data inputs ; 1591                        ;
+; cycloneiii_ram_block  ; 8                           ;
+;                       ;                             ;
+; Max LUT depth         ; 11.00                       ;
+; Average LUT depth     ; 5.38                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:07     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
+    Info: Processing started: Sat Jul 18 18:18:57 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off test_lqfp -c test_lqfp
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /desktop/altera_ce10/plc_ep4ce10_e22/rtl/main.v
+    Info (12023): Found entity 1: main File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/main.v Line: 26
+Info (12021): Found 1 design units, including 1 entities, in source file /desktop/altera_ce10/plc_ep4ce10_e22/rtl/spi_master.v
+    Info (12023): Found entity 1: spi_master File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/spi_master.v Line: 14
+Info (12021): Found 1 design units, including 1 entities, in source file /desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_init.v
+    Info (12023): Found entity 1: w5500_init File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_init.v Line: 21
+Warning (10229): Verilog HDL Expression warning at w5500_receive.v(117): truncated literal to match 11 bits File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_receive.v Line: 117
+Info (12021): Found 1 design units, including 1 entities, in source file /desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_receive.v
+    Info (12023): Found entity 1: w5500_receive File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_receive.v Line: 18
+Warning (10229): Verilog HDL Expression warning at w5500_send.v(59): truncated literal to match 11 bits File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_send.v Line: 59
+Info (12021): Found 1 design units, including 1 entities, in source file /desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_send.v
+    Info (12023): Found entity 1: w5500_send File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_send.v Line: 19
+Info (12021): Found 1 design units, including 1 entities, in source file /desktop/altera_ce10/plc_ep4ce10_e22/rtl/pulse_gen.v
+    Info (12023): Found entity 1: pulse_gen File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/pulse_gen.v Line: 17
+Warning (12019): Can't analyze file -- file ../rtl/simple_spi_test.v is missing
+Info (12127): Elaborating entity "main" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at main.v(423): truncated value with size 8 to match size of target (3) File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/main.v Line: 423
+Warning (10240): Verilog HDL Always Construct warning at main.v(442): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/main.v Line: 442
+Info (12128): Elaborating entity "spi_master" for hierarchy "spi_master:u_spi" File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/main.v Line: 525
+Warning (10036): Verilog HDL or VHDL warning at spi_master.v(93): object "ctrl_byte" assigned a value but never read File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/spi_master.v Line: 93
+Warning (10230): Verilog HDL assignment warning at spi_master.v(206): truncated value with size 32 to match size of target (11) File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/spi_master.v Line: 206
+Info (12128): Elaborating entity "w5500_init" for hierarchy "w5500_init:u_init" File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/main.v Line: 554
+Warning (10036): Verilog HDL or VHDL warning at w5500_init.v(179): object "link_up" assigned a value but never read File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_init.v Line: 179
+Info (10264): Verilog HDL Case Statement information at w5500_init.v(398): all case item expressions in this case statement are onehot File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_init.v Line: 398
+Info (12128): Elaborating entity "w5500_receive" for hierarchy "w5500_receive:u_recv" File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/main.v Line: 586
+Warning (10036): Verilog HDL or VHDL warning at w5500_receive.v(197): object "saved_ir" assigned a value but never read File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_receive.v Line: 197
+Warning (10036): Verilog HDL or VHDL warning at w5500_receive.v(198): object "rx_saved_ir" assigned a value but never read File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_receive.v Line: 198
+Warning (10240): Verilog HDL Always Construct warning at w5500_receive.v(301): inferring latch(es) for variable "buf_rd_init", which holds its previous value in one or more paths through the always construct File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_receive.v Line: 301
+Info (10041): Inferred latch for "buf_rd_init[0]" at w5500_receive.v(301) File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_receive.v Line: 301
+Info (10041): Inferred latch for "buf_rd_init[1]" at w5500_receive.v(301) File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_receive.v Line: 301
+Info (10041): Inferred latch for "buf_rd_init[2]" at w5500_receive.v(301) File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_receive.v Line: 301
+Info (10041): Inferred latch for "buf_rd_init[3]" at w5500_receive.v(301) File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_receive.v Line: 301
+Info (10041): Inferred latch for "buf_rd_init[4]" at w5500_receive.v(301) File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_receive.v Line: 301
+Info (10041): Inferred latch for "buf_rd_init[5]" at w5500_receive.v(301) File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_receive.v Line: 301
+Info (10041): Inferred latch for "buf_rd_init[6]" at w5500_receive.v(301) File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_receive.v Line: 301
+Info (10041): Inferred latch for "buf_rd_init[7]" at w5500_receive.v(301) File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_receive.v Line: 301
+Info (10041): Inferred latch for "buf_rd_init[8]" at w5500_receive.v(301) File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_receive.v Line: 301
+Info (10041): Inferred latch for "buf_rd_init[9]" at w5500_receive.v(301) File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_receive.v Line: 301
+Info (10041): Inferred latch for "buf_rd_init[10]" at w5500_receive.v(301) File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_receive.v Line: 301
+Info (12128): Elaborating entity "w5500_send" for hierarchy "w5500_send:u_send" File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/main.v Line: 609
+Warning (10036): Verilog HDL or VHDL warning at w5500_send.v(80): object "need_split" assigned a value but never read File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_send.v Line: 80
+Warning (10230): Verilog HDL assignment warning at w5500_send.v(144): truncated value with size 16 to match size of target (11) File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_send.v Line: 144
+Info (12128): Elaborating entity "pulse_gen" for hierarchy "pulse_gen:gen_pulse[0].u_pulse_gen" File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/main.v Line: 626
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "buffer_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 11
+        Info (286033): Parameter NUMWORDS_A set to 2048
+        Info (286033): Parameter WIDTH_B set to 8
+        Info (286033): Parameter WIDTHAD_B set to 11
+        Info (286033): Parameter NUMWORDS_B set to 2048
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+Info (12130): Elaborated megafunction instantiation "altsyncram:buffer_rtl_0"
+Info (12133): Instantiated megafunction "altsyncram:buffer_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "8"
+    Info (12134): Parameter "WIDTHAD_A" = "11"
+    Info (12134): Parameter "NUMWORDS_A" = "2048"
+    Info (12134): Parameter "WIDTH_B" = "8"
+    Info (12134): Parameter "WIDTHAD_B" = "11"
+    Info (12134): Parameter "NUMWORDS_B" = "2048"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_03h1.tdf
+    Info (12023): Found entity 1: altsyncram_03h1 File: F:/desktop/altera_ce10/plc_ep4ce10_e22/par/db/altsyncram_03h1.tdf Line: 27
+Info (13000): Registers with preset signals will power-up high File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/w5500_init.v Line: 40
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 44 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "key[0]" File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/main.v Line: 29
+    Warning (15610): No output dependent on input pin "key[1]" File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/main.v Line: 29
+    Warning (15610): No output dependent on input pin "key[2]" File: F:/desktop/altera_ce10/plc_ep4ce10_e22/rtl/main.v Line: 29
+Info (21057): Implemented 5226 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 19 input pins
+    Info (21059): Implemented 23 output pins
+    Info (21061): Implemented 5176 logic cells
+    Info (21064): Implemented 8 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 18 warnings
+    Info: Peak virtual memory: 4883 megabytes
+    Info: Processing ended: Sat Jul 18 18:19:11 2026
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:19
+
+
